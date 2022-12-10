@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>KOREAN PIE</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="Koreanpage/apple-touch-icon.png">
+  <!-- <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"> -->
+  <link rel="icon" type="image/png" sizes="16x16" href="Koreanpage/favicon-16x16.png">
+  <link rel="manifest" href="Koreanpage/site.webmanifest">
+  <link rel="mask-icon" href="Koreanpage/safari-pinned-tab.svg" color="#d55b81">
+  <meta name="msapplication-TileColor" content="#ffc40d">
+  <meta name="theme-color" content="#ffffff">
+
+  <style>
+    img {
+      display: block;
+      margin: 0px auto;
+    }
+
+    @font-face {
+      font-family: 'LotteMartHappy';
+      font-style: normal;
+      font-weight: 400;
+      src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyMedium.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyMedium.woff') format('woff');
+    }
+
+
+    @font-face {
+      font-family: 'LotteMartHappy';
+      font-style: normal;
+      font-weight: 700;
+      src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyBold.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyBold.woff') format('woff');
+    }
+
+
+
+    .lottemarthappy * {
+      font-family: 'LotteMartHappy', sans-serif;
+    }
+
+    html,
+    body {
+      height: 100%;
+      overflow-y: scroll;
+
+      -ms-overflow-style: none;
+      background-color: rgb(255, 228, 228);
+      font-family: 'LotteMartHappy';
+    }
+
+    body::-webkit-scrollbar {
+      display: none;
+    }
+
+    body {
+      margin: auto;
+      height: auto;
+      padding-left: 30px;
+      padding-right: 30px;
+      font-family: Roboto, "Helvetica Neue", sans-serif;
+    }
+
+    h4 {
+      margin-top: 40px;
+      font-family: 'LotteMartHappy';
+      margin-top: 40px;
+      font-size: 25px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      font-family: 'LotteMartHappy';
+      text-align: center;
+      margin-top: 40px;
+      font-size: 5px;
+    }
+
+
+
+    mat-toolbar {
+      background-color: none;
+      /* padding: 20%; */
+      margin-top: 200px;
+      margin-left: 200px;
+      margin-right: 200px;
+
+
+    }
+
+    .menu-item {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      font-size: 16px;
+      font-family: 'LotteMartHappy';
+
+    }
+
+    a {
+      text-decoration: none;
+      color: rgb(31, 31, 31);
+    }
+
+
+    .Content {
+      margin: auto;
+      border: 2px solid rgb(255, 211, 211);
+      /* height: 550px; */
+      height: 100%;
+      /* line-height: 300px; */
+      line-height: 100%;
+      text-align: center;
+
+    }
+
+    .Footer {
+      background-color: rgb(255, 211, 211);
+      border: 3px solid rgb(255, 211, 211);
+      height: 150px;
+      margin: auto;
+      text-align: center;
+    }
+
+    button {
+      text-align: center;
+    }
+
+    #video {
+      margin: auto;
+
+    }
+  </style>
+
+
+
+</head>
+
+<br>
+
+<mat-toolbar color="none">
+  <span class="title-center"><a href="/Koreanpage/index.html">
+      <img src="Koreanpage/assets/piemain.gif" style="width: 200px;">
+    </a></span>
+</mat-toolbar>
+
+<div style="text-align: center; margin-top: 15px;">
+
+  <div style="width: 70%; display: inline-flex; ">
+    <div class="menu-item">
+      <a href="/Koreanpage/app/aboutsite.html">ABOUT SITE</a>
+    </div>
+
+    <div class="menu-item">
+      <a href="/Koreanpage/app/watchnews.html">Popularity Of Korean Culture</a>
+    </div>
+    <div class="menu-item">
+      <a href="/Koreanpage/app/picinkorea.html">PIC IN KOREA</a>
+    </div>
+    <div class="menu-item">
+      <a href="/Koreanpage/app/contact.html">Contact</a>
+    </div>
+  </div>
+</div>
+<br></br>
+
+
+<div class="Content">
+  <br><br>
+  <div style="text-align: center;">
+
+    <img [src]="webcamImage.imageAsDataUrl" />
+    <div style="margin-top: 40px;">
+      <p style="text-align:center"><video id="video" width="220" height="140" autoplay=""></video></p>
+      <p style="text-align: center;"><button type="button" id="webcamBtn">TAKE 📷</button></p>
+      <p style="text-align: center;"><button type="button" id="webcamOBtn">STOP 📷</button></p>
+
+      <br>
+      <hr>
+
+      <p></p><br>
+      <div *ngIf="webcamImage"
+        style="background-color: rgb(255, 255, 255); width: 450px; height: 350px; padding: 13px; display: inline-block;">
+        <h2>Your Film in Korea Today :D </h2>
+
+        <p style="text-align:center"><canvas id="canvas" width="320" height="350"></canvas></p>
+        <span id="date"></span>
+        <script>
+          let today = new Date();
+          let year = today.getFullYear();
+          let month = today.getMonth() + 1;
+          let date = today.getDate();
+
+          document.write(year + '.' + month + '.' + date)
+          document.write("  : capture and keep it :)".fontcolor("gray"));
+
+        </script>
+      </div>
+
+      <script>
+
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+          navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
+            var video = document.getElementById('video');
+            video.srcObject = stream;
+            video.play();
+
+
+
+
+          });
+
+
+
+        }
+
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+        var video = document.getElementById('video');
+        document.getElementById("webcamBtn").addEventListener("click", function () {
+          context.drawImage(video, 0, 0, 320, 240);
+
+
+
+
+
+
+
+          // btn = document.getElementById("webcamOBtn");
+          // btn.addEventListener("click", function () {
+          //   video.pause();
+
+          //   video.src = "";
+
+          //   localstream.getTracks()[0].stop();
+          // });
+        }
+        );
+
+
+
+        document.getElementById("webcamBtn").addEventListener("click", function () {
+          context.drawImage(video, 0, 0, 320, 240);
+
+
+        });
+        document.getElementById("webcamOBtn").addEventListener("click", function () {
+          video.pause();
+
+        })
+        document.getElementById("webcamBtn").addEventListener("click", function () {
+          video.play();
+        })
+
+
+      </script>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+  <br><br><br>
+  <div class="Footer">
+    <h2>Made by SongGaHyeon : Copyright 2022. SongGaHyeon All rights reserved. <br>
+      Wanna Know more about me?<br>
+      Connect to my Github or Tistory ! <br>
+    </h2>
+    <div style="text-align: center;">
+      <a href="https://github.com/SongGaHyeon">
+        <img src="/Koreanpage/assets/github.png" width="20px " height="20px" /><br>
+      </a>
+
+      <a href="https://letsingacode.tistory.com/">
+        <img src="/Koreanpage/assets/tistory.svg" width="10px" height="10px" /><br>
+      </a>
+    </div>
+
+  </div>
+  <!-- <br><br> -->
+
+
+  </body>
+
+</html>
