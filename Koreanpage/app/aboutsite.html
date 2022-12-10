@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>KOREAN PIE</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="Koreanpage/apple-touch-icon.png">
+  <!-- <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"> -->
+  <link rel="icon" type="image/png" sizes="16x16" href="Koreanpage/favicon-16x16.png">
+  <link rel="manifest" href="Koreanpage/site.webmanifest">
+  <link rel="mask-icon" href="Koreanpage/safari-pinned-tab.svg" color="#d55b81">
+  <meta name="msapplication-TileColor" content="#ffc40d">
+  <meta name="theme-color" content="#ffffff">
+
+  <style>
+    img {
+      display: block;
+      margin: 0px auto;
+    }
+
+    @font-face {
+      font-family: 'LotteMartHappy';
+      font-style: normal;
+      font-weight: 400;
+      src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyMedium.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyMedium.woff') format('woff');
+    }
+
+
+    @font-face {
+      font-family: 'LotteMartHappy';
+      font-style: normal;
+      font-weight: 700;
+      src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyBold.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyBold.woff') format('woff');
+    }
+
+
+
+    .lottemarthappy * {
+      font-family: 'LotteMartHappy', sans-serif;
+    }
+
+    html,
+    body {
+      height: 100%;
+      overflow-y: scroll;
+
+      -ms-overflow-style: none;
+      background-color: rgb(255, 228, 228);
+      font-family: 'LotteMartHappy';
+    }
+
+    body::-webkit-scrollbar {
+      display: none;
+    }
+
+    body {
+      margin: auto;
+      height: auto;
+      padding-left: 30px;
+      padding-right: 30px;
+      font-family: Roboto, "Helvetica Neue", sans-serif;
+    }
+
+    h4 {
+      margin-top: 40px;
+      font-family: 'LotteMartHappy';
+      margin-top: 40px;
+      font-size: 25px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      font-family: 'LotteMartHappy';
+      text-align: center;
+      margin-top: 40px;
+      font-size: 5px;
+    }
+
+    h3 {
+      margin-top: 40px;
+      font-family: 'LotteMartHappy';
+      text-align: center;
+      margin-top: 40px;
+      font-size: 18px;
+    }
+
+
+
+    mat-toolbar {
+      background-color: none;
+      /* padding: 20%; */
+      margin-top: 200px;
+      margin-left: 200px;
+      margin-right: 200px;
+
+
+    }
+
+    .menu-item {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      font-size: 16px;
+      font-family: 'LotteMartHappy';
+
+    }
+
+    a {
+      text-decoration: none;
+      color: rgb(31, 31, 31);
+    }
+
+
+    .Content {
+      margin: auto;
+      border: 2px solid rgb(255, 211, 211);
+      /* height: 550px; */
+      height: 100%;
+      /* line-height: 300px; */
+      line-height: 100%;
+      text-align: center;
+
+    }
+
+    .Footer {
+      background-color: rgb(255, 211, 211);
+      border: 3px solid rgb(255, 211, 211);
+      height: 150px;
+      margin: auto;
+      text-align: center;
+    }
+
+    #about {
+      background-color: blanchedalmond;
+      text-align: center;
+      margin: auto;
+      width: auto;
+      line-height: 2em;
+
+
+    }
+
+    span {
+      color: darkcyan;
+
+
+    }
+
+    .wrap {
+      width: 100px;
+      height: 100px;
+      background-color: #f0f0f0;
+      border-radius: 30px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .box::before {
+      content: '❤';
+      position: absolute;
+      left: 25px;
+      top: 25px;
+      float: left;
+      color: pink;
+      font-size: 50px;
+      line-height: 1;
+      animation: heartbeat 1s 100 ease;
+      /*심장 아이콘 애니메이션 반복 횟수*/
+    }
+
+    .counter {
+      /* 자바스크립트 이벤트 처리 메시지 출력 */
+      text-align: center;
+      color: rgb(232, 160, 172);
+    }
+
+    /* 크기가 변하는 심장 아이콘 키프레임 애니메이션 */
+    @keyframes heartbeat {
+      0% {
+        transform: scale(1.0);
+      }
+
+      50% {
+        transform: scale(1.3);
+      }
+
+      100% {
+        transform: scale(1.0);
+      }
+
+
+    }
+  </style>
+
+
+</head>
+
+<br>
+
+<mat-toolbar color="none">
+  <span class="title-center"><a href="/Koreanpage/index.html">
+      <img src="Koreanpage/assets/piemain.gif" style="width: 200px;">
+    </a></span>
+</mat-toolbar>
+
+<div style="text-align: center; margin-top: 15px;">
+
+  <div style="width: 70%; display: inline-flex; ">
+    <div class="menu-item">
+      <a href="/Koreanpage/app/aboutsite.html">ABOUT SITE</a>
+    </div>
+
+    <div class="menu-item">
+      <a href="/Koreanpage/app/watchnews.html">Popularity Of Korean Culture</a>
+    </div>
+    <div class="menu-item">
+      <a href="/Koreanpage/app/picinkorea.html">PIC IN KOREA</a>
+    </div>
+    <div class="menu-item">
+      <a href="/Koreanpage/app/contact.html">CONTACT</a>
+    </div>
+  </div>
+</div>
+<br></br>
+
+
+<div class="Content">
+  <br><br>
+  <h4><span>'Korean PIE'</span> 어떤 사이트인가요? </h4>
+  <br>
+  <div style="display: inline-flex;">
+
+    <img src="/Koreanpage/assets/main.png" style="max-width:30%; height:auto;">
+
+
+
+
+
+
+  </div>
+
+  <div id="about">
+    <br>
+    <h3> 메인페이지에서 사용자 분에게 끌리는 파이를 골라주세요!<br>
+      파이는 총 4개 <span>'김치 파이, 비빔밥 파이, 삼겹살 파이, 송편 파이'</span> 입니다.
+      <br>
+      음악, 영화, 드라마 같은 대중문화부터 패션,음식 등등 대한민국의 문화가 많은 나라들에서 각광받고 있습니다.<br><br>
+      <span>2010~2020년대 초반</span>을 기분으로 10~20대의 젊은 층에서 전 세계적인 한류의 유행과 폭발적인 영향력의 증가는 유튜브가 만들어진<br>
+      <span>2000년대 이후 </span>늘어나기 시작했어요. 1990년대 초반에 발달된 인터넷 문화와 깊은 연관성이 있는 거죠!<br>
+      <br><br>
+      이렇게 한류의 인기가 증가하는 반면, 오히려 많아진 데이터들 사이에서 올바른 데이터를 검색하는 것이 어려워진 것 같아요. <br>
+      <span>한류를 처음 접하는 외국인들, 또는 한류에 관심을 가지게 된 사람들이 가볍게 한류를 접할 수 있게 하고자 이 사이트를 만들었어요.</span>
+      <br><br>
+      HOW TO USE ! <br> 함께 사이트를 살펴볼까요?
+      <br><br><br>
+
+      <span style="color:rgb(225, 117, 117)">CHOOSING PIE</span>
+      <a>
+        <img src="/Koreanpage/assets/파이고르기.jpg" style="max-width:70%; height:auto;">
+
+        <img src="/Koreanpage/assets/파이고르기2.jpg" style="max-width:70%; height:auto;">
+
+
+
+      </a>
+
+      <br><br><br>
+
+      <span style="color:rgb(225, 117, 117)"> CHOOSING PIE 후, 추천하는 노래 클릭 시 </span>
+      <a>
+        <img src="/Koreanpage/assets/음악재생.jpg" style="max-width:70%; height:auto;">
+      </a>
+
+      <br><br><br>
+
+      <span style="color:rgb(225, 117, 117)"> CHOOSING PIE 후, 추천하는 옷 클릭 시 </span>
+      <a>
+        <img src="/Koreanpage/assets/추천옷.jpg" style="max-width:70%; height:auto;">
+      </a>
+
+      <br><br><br>
+
+      <span style="color:rgb(225, 117, 117)"> CHOOSING PIE 후, 추천하는 음식점 클릭 시 </span>
+      <a>
+        <img src="/Koreanpage/assets/인기음식.jpg" style="max-width:70%; height:auto;">
+      </a>
+
+      <br><br><br>
+
+      <span style="color:rgb(225, 117, 117)"> CHOOSING PIE 후, 추천하는 장소 클릭 시 </span>
+      <a>
+        <img src="/Koreanpage/assets/인기장소.jpg" style="max-width:70%; height:auto;">
+      </a>
+
+      <br><br><br>
+
+      <span style="color:rgb(225, 117, 117)">MENU : PIC IN KOREA</span>
+      <a>
+        <img src="/Koreanpage/assets/카메라.jpg" style="max-width:70%; height:auto;">
+
+      </a>
+
+      <br><br><br>
+
+      <span style="color:rgb(225, 117, 117)">MENU : Popularity Of KOREAN Culutre</span>
+      <a>
+        <img src="/Koreanpage/assets/기사.jpg" style="max-width:70%; height:auto;">
+
+      </a>
+
+
+      <br><br><br>
+      <span style="color:rgb(225, 117, 117)">MENU : CONTACT</span>
+      <a>
+        <img src="/Koreanpage/assets/컨택.jpg" style="max-width:70%; height:auto;">
+      </a>
+      <br><br><br>
+
+
+
+    </h3>
+    <h3> 홈페이지 구경을 시작해보세요 ! 당신의 한류 사랑은 채워집니다.</h3>
+    <img src="/Koreanpage/assets/logo.jpg">
+    <div class="wrap">
+      <h3 class="counter"></h3>
+      <div class="box"></div>
+    </div>
+    <script>
+      element.addEventListener('animationiteration', function () {
+      });
+
+      document.addEventListener('DOMContentLoaded', function () {
+        const heartbeat = document.querySelector('.box');
+        const msg = document.querySelector('.counter');
+        let beater = 0;
+
+        // 애니메이션 이벤트 리스너 등록
+        heartbeat.addEventListener('animationstart', start);
+        heartbeat.addEventListener('animationend', end);
+        heartbeat.addEventListener('animationiteration', iterate);
+      });
+
+    </script>
+
+
+    <br><br><br>
+
+  </div>
+
+
+  <br><br><br>
+  <div class="Footer">
+    <h2>Made by SongGaHyeon : Copyright 2022. SongGaHyeon All rights reserved. <br>
+      Wanna Know more about me?<br>
+      Connect to my Github or Tistory ! <br>
+    </h2>
+    <div style="text-align: center;">
+      <a href="https://github.com/SongGaHyeon">
+        <img src="/Koreanpage/assets/github.png" width="20px " height="20px" /><br>
+      </a>
+
+      <a href="https://letsingacode.tistory.com/">
+        <img src="/Koreanpage/assets/tistory.svg" width="10px" height="10px" /><br>
+      </a>
+
+
+    </div>
+
+  </div>
+  <!-- <br><br> -->
+
+
+  </body>
+
+
+</html>
