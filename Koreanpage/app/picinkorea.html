@@ -138,159 +138,160 @@
 
 </head>
 
-<br>
+<body>
+  <br>
 
-<mat-toolbar color="none">
-  <span class="title-center"><a href="/KoreanPie/index.html">
-      <img src="/KoreanPie/Koreanpage/assets/piemain.gif" style="width: 200px;">
-    </a></span>
-</mat-toolbar>
+  <mat-toolbar color="none">
+    <span class="title-center"><a href="/KoreanPie/index.html">
+        <img src="/KoreanPie/Koreanpage/assets/piemain.gif" style="width: 200px;">
+      </a></span>
+  </mat-toolbar>
 
-<div style="text-align: center; margin-top: 15px;">
+  <div style="text-align: center; margin-top: 15px;">
 
-  <div style="width: 70%; display: inline-flex; ">
-    <div class="menu-item">
-      <a href="/KoreanPie/Koreanpage/app/aboutsite.html">ABOUT SITE</a>
-    </div>
-
-    <div class="menu-item">
-      <a href="/KoreanPie/Koreanpage/app/watchnews.html">Popularity Of Korean Culture</a>
-    </div>
-    <div class="menu-item">
-      <a href="/KoreanPie/Koreanpage/app/picinkorea.html">PIC IN KOREA</a>
-    </div>
-    <div class="menu-item">
-      <a href="/KoreanPie/Koreanpage/app/contact.html">Contact</a>
-    </div>
-  </div>
-</div>
-<br></br>
-
-
-<div class="Content">
-  <br><br>
-  <div style="text-align: center;">
-
-    <img [src]="webcamImage.imageAsDataUrl" />
-    <div style="margin-top: 40px;">
-      <p style="text-align:center"><video id="video" width="220" height="140" autoplay=""></video></p>
-      <p style="text-align: center;"><button type="button" id="webcamBtn">TAKE 📷</button></p>
-      <p style="text-align: center;"><button type="button" id="webcamOBtn">STOP 📷</button></p>
-
-      <br>
-      <hr>
-
-      <p></p><br>
-      <div *ngIf="webcamImage"
-        style="background-color: rgb(255, 255, 255); width: 450px; height: 350px; padding: 13px; display: inline-block; padding: auto;">
-        <h2 style="padding: auto;">Your Film in Korea Today :D </h2>
-
-        <p style="text-align:center"><canvas id="canvas" width="320" height="350"></canvas></p>
-        <span id="date"></span>
-        <script>
-          let today = new Date();
-          let year = today.getFullYear();
-          let month = today.getMonth() + 1;
-          let date = today.getDate();
-
-          document.write(year + '.' + month + '.' + date)
-          document.write("  : capture and keep it :)".fontcolor("gray"));
-
-        </script>
+    <div style="width: 70%; display: inline-flex; ">
+      <div class="menu-item">
+        <a href="/KoreanPie/Koreanpage/app/aboutsite.html">ABOUT SITE</a>
       </div>
 
-      <script>
+      <div class="menu-item">
+        <a href="/KoreanPie/Koreanpage/app/watchnews.html">Popularity Of Korean Culture</a>
+      </div>
+      <div class="menu-item">
+        <a href="/KoreanPie/Koreanpage/app/picinkorea.html">PIC IN KOREA</a>
+      </div>
+      <div class="menu-item">
+        <a href="/KoreanPie/Koreanpage/app/contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+  <br></br>
 
-        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-          navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
-            var video = document.getElementById('video');
-            video.srcObject = stream;
-            video.play();
+
+  <div class="Content">
+    <br><br>
+    <div style="text-align: center;">
+
+      <img [src]="webcamImage.imageAsDataUrl" />
+      <div style="margin-top: 40px;">
+        <p style="text-align:center"><video id="video" width="220" height="140" autoplay=""></video></p>
+        <p style="text-align: center;"><button type="button" id="webcamBtn">TAKE 📷</button></p>
+        <p style="text-align: center;"><button type="button" id="webcamOBtn">STOP 📷</button></p>
+
+        <br>
+        <hr>
+
+        <p></p><br>
+        <div *ngIf="webcamImage"
+          style="background-color: rgb(255, 255, 255); width: 450px; height: 350px; padding: 13px; display: inline-block; width: auto;">
+          <h2 style="padding: auto;">Your Film in Korea Today :D </h2>
+
+          <p style="text-align:center; width: auto;"><canvas id="canvas" width="320" height="350"></canvas></p>
+          <span id="date"></span>
+          <script>
+            let today = new Date();
+            let year = today.getFullYear();
+            let month = today.getMonth() + 1;
+            let date = today.getDate();
+
+            document.write(year + '.' + month + '.' + date)
+            document.write("  : capture and keep it :)".fontcolor("gray"));
+
+          </script>
+        </div>
+
+        <script>
+
+          if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
+              var video = document.getElementById('video');
+              video.srcObject = stream;
+              video.play();
 
 
+
+
+            });
+
+
+
+          }
+
+          var canvas = document.getElementById('canvas');
+          var context = canvas.getContext('2d');
+          var video = document.getElementById('video');
+          document.getElementById("webcamBtn").addEventListener("click", function () {
+            context.drawImage(video, 0, 0, 320, 240);
+
+
+
+
+
+
+
+            // btn = document.getElementById("webcamOBtn");
+            // btn.addEventListener("click", function () {
+            //   video.pause();
+
+            //   video.src = "";
+
+            //   localstream.getTracks()[0].stop();
+            // });
+          }
+          );
+
+
+
+          document.getElementById("webcamBtn").addEventListener("click", function () {
+            context.drawImage(video, 0, 0, 320, 240);
 
 
           });
+          document.getElementById("webcamOBtn").addEventListener("click", function () {
+            video.pause();
+
+          })
+          document.getElementById("webcamBtn").addEventListener("click", function () {
+            video.play();
+          })
+
+
+        </script>
+
+      </div>
 
 
 
-        }
-
-        var canvas = document.getElementById('canvas');
-        var context = canvas.getContext('2d');
-        var video = document.getElementById('video');
-        document.getElementById("webcamBtn").addEventListener("click", function () {
-          context.drawImage(video, 0, 0, 320, 240);
 
 
 
 
 
 
-
-          // btn = document.getElementById("webcamOBtn");
-          // btn.addEventListener("click", function () {
-          //   video.pause();
-
-          //   video.src = "";
-
-          //   localstream.getTracks()[0].stop();
-          // });
-        }
-        );
-
-
-
-        document.getElementById("webcamBtn").addEventListener("click", function () {
-          context.drawImage(video, 0, 0, 320, 240);
-
-
-        });
-        document.getElementById("webcamOBtn").addEventListener("click", function () {
-          video.pause();
-
-        })
-        document.getElementById("webcamBtn").addEventListener("click", function () {
-          video.play();
-        })
-
-
-      </script>
 
     </div>
 
 
+    <br><br><br>
+    <div class="Footer">
+      <h2>Made by SongGaHyeon : Copyright 2022. SongGaHyeon All rights reserved. <br>
+        Wanna Know more about me?<br>
+        Connect to my Github or Tistory ! <br>
+      </h2>
+      <div style="text-align: center;">
+        <a href="https://github.com/SongGaHyeon">
+          <img src="/KoreanPie/Koreanpage/assets/github.png" width="20px " height="20px" /><br>
+        </a>
 
+        <a href="https://letsingacode.tistory.com/">
+          <img src="/KoreanPie/Koreanpage/assets/tistory.svg" width="10px" height="10px" /><br>
+        </a>
+      </div>
 
-
-
-
-
-
-
-  </div>
-
-
-  <br><br><br>
-  <div class="Footer">
-    <h2>Made by SongGaHyeon : Copyright 2022. SongGaHyeon All rights reserved. <br>
-      Wanna Know more about me?<br>
-      Connect to my Github or Tistory ! <br>
-    </h2>
-    <div style="text-align: center;">
-      <a href="https://github.com/SongGaHyeon">
-        <img src="/KoreanPie/Koreanpage/assets/github.png" width="20px " height="20px" /><br>
-      </a>
-
-      <a href="https://letsingacode.tistory.com/">
-        <img src="/KoreanPie/Koreanpage/assets/tistory.svg" width="10px" height="10px" /><br>
-      </a>
     </div>
-
-  </div>
-  <!-- <br><br> -->
+    <!-- <br><br> -->
 
 
-  </body>
+</body>
 
 </html>
