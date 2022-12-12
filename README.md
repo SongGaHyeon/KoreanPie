@@ -1,4 +1,6 @@
 # KoreanPie
+
+* Webprogramming task로 만들게 된 프로젝트입니다.
 ✅ Wanna Know more about Korean culture? Start this Website
 
 
